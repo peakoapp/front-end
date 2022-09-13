@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native"
 
-export default function AvailabilitySumScreen(){
+export default function AvailabilitySummaryScreen(){
     return (
         <View style={styles.rootContainer}>
           <Text>

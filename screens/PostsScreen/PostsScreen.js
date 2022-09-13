@@ -1,6 +1,4 @@
 import { View, Text, StyleSheet } from "react-native"
-import ProfileOverview from "../components/elements/ProfileOverview";
-
 export default function PostsScreen(){
     return (
         <View style={styles.rootContainer}>

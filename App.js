@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabs from "./components/navigations/BottomTabs";
-import AvailabilitySumScreen from "./screens/AvailabilitySumScreen";
+import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +18,7 @@ export default function App() {
               headerShown: false,
             }}
           />
-       <Stack.Screen name="Availability" component={AvailabilitySumScreen} />
+       <Stack.Screen name="Availability" component={AvailabilitySummaryScreen} />
       </Stack.Navigator>
       </NavigationContainer>
     </View>

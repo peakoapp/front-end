@@ -1,11 +1,9 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import MessageScreen from './subscreens/Chat/MessageScreen';
-import FriendScreen from './subscreens/Chat/FriendScreen';
-import { View, Text, StyleSheet,StatusBar } from 'react-native';
-import ProfileOverview from '../components/elements/ProfileOverview';
-import ProfilePostScreen from './subscreens/Profile/ProfilePostScreen';
-import ProfileCalendarScreen from './subscreens/Profile/ProfileCalendarScreen';
-import ProfileListScreen from './subscreens/Profile/ProfileListScreen';
+import { View, StyleSheet,StatusBar } from 'react-native';
+import ProfileOverview from './components/ProfileOverview';
+import ProfilePostScreen from './ProfilePostScreen/ProfilePostScreen';
+import ProfileCalendarScreen from './ProfileCalendarScreen/ProfileCalendarScreen';
+import ProfileListScreen from './ProfileListScreen/ProfileListScreen';
 
 const Tab = createMaterialTopTabNavigator();
 

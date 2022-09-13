@@ -1,6 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import MessageScreen from './subscreens/Chat/MessageScreen';
-import FriendScreen from './subscreens/Chat/FriendScreen';
+import MessageScreen from './MessageScreen/MessageScreen'
+import FriendScreen from './FriendScreen/FriendScreen';
 import { View, Text, StyleSheet,StatusBar } from 'react-native';
 
 

@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import "react-native-gesture-handler";
 import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
-import CalendarScreen from "../../screens/CalendarScreen";
-import PostsScreen from "../../screens/PostsScreen";
-import ChatScreen from "../../screens/ChatScreen";
-import ProfileScreen from "../../screens/ProfileScreen";
+import CalendarScreen from "../../screens/CalendarScreen/CalendarScreen";
+import PostsScreen from "../../screens/PostsScreen/PostsScreen";
+import ChatScreen from "../../screens/ChatScreen/ChatScreen";
+import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
 
 
 const Tab = createBottomTabNavigator();

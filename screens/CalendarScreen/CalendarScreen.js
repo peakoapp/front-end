@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import PressableBtn from "../components/UIs/PressableBtn";
+import PressableBtn from "../../components/UIs/PressableBtn"
 
 export default function CalendarScreen() {
   const navigation = useNavigation();
