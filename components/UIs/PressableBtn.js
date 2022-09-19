@@ -26,13 +26,13 @@ buttonOuterContainer: {
 },
 buttonInnerContainer: {
     backgroundColor: 'orange',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    padding: 5,
     elevation: 2,
 },
 buttonText: {
     color: 'white',
     textAlign: 'center',
+    fontFamily:'poppins-semibold'
 },
 pressed: {
     opacity: 0.5,

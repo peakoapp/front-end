@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 
 
-export default function ProfileListScreen(){
+export default function ProfileList(){
     return (
         <View style={styles.rootContainer}>
         <Text>

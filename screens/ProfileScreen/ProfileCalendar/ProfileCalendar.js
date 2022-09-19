@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 
 
-export default function ProfileCalendarScreen(){
+export default function ProfileCalendar(){
     return (
         <View style={styles.rootContainer}>
         <Text>

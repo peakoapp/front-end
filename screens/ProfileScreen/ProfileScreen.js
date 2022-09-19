@@ -1,9 +1,9 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { View, StyleSheet,StatusBar } from 'react-native';
 import ProfileOverview from './components/ProfileOverview';
-import ProfilePostScreen from './ProfilePostScreen/ProfilePostScreen';
-import ProfileCalendarScreen from './ProfileCalendarScreen/ProfileCalendarScreen';
-import ProfileListScreen from './ProfileListScreen/ProfileListScreen';
+import ProfilePost from './ProfilePost/ProfilePost';
+import ProfileCalendar from './ProfileCalendar/ProfileCalendar';
+import ProfileList from './ProfileList/ProfileList';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,9 +19,9 @@ export default function ProfileScreen(){
             tabBarStyle: { backgroundColor: 'orange' },
             }}
             >
-            <Tab.Screen name="Posts" component={ProfilePostScreen} />
-            <Tab.Screen name="Calendar" component={ProfileCalendarScreen} />
-            <Tab.Screen name="List" component={ProfileListScreen} />
+            <Tab.Screen name="Posts" component={ProfilePost} />
+            <Tab.Screen name="Calendar" component={ProfileCalendar} />
+            <Tab.Screen name="List" component={ProfileList} />
             </Tab.Navigator>
         </View>
         

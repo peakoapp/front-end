@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 
 
-export default function ProfilePostScreen(){
+export default function ProfilePost(){
     return (
         <View style={styles.rootContainer}>
         <Text>
