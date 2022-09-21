@@ -3,10 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useState, useContext, useEffect, useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthContextProvider, { AuthContext } from './store/auth-context';
-
-import { useFonts } from "expo-font";
-import * as SplashScreen from 'expo-splash-screen';
-
+import Font from "./style/Font";
 import BottomTabs from "./components/navigations/BottomTabs";
 import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -59,32 +56,7 @@ export default function App() {
   //Authentication
   const authCtx = useContext(AuthContext);
 
-  //using custom fonts
-  const [fontsLoaded] = useFonts({
-    'poppins-extralight':require('./assets/fonts/Poppins/Poppins-ExtraLight.ttf'),
-    'poppins-italic':require('./assets/fonts/Poppins/Poppins-Italic.ttf'),
-    'poppins-light': require('./assets/fonts/Poppins/Poppins-Light.ttf'),
-    'poppins-medium': require('./assets/fonts/Poppins/Poppins-Medium.ttf'),
-    'poppins-regular': require('./assets/fonts/Poppins/Poppins-Regular.ttf'),
-    'poppins-thin': require('./assets/fonts/Poppins/Poppins-Thin.ttf'),
-    'poppins-semibold': require('./assets/fonts/Poppins/Poppins-SemiBold.ttf'),
-  })
-  useEffect(() => {
-    async function prepare() {
-      await SplashScreen.preventAutoHideAsync();
-    }
-  }, []);
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-  
-  if (!fontsLoaded) {
-    return null;
-  }
-
+  <Font />
   //rendering
   return (
     <>

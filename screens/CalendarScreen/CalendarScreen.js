@@ -1,21 +1,25 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import PressableBtn from "../../components/UIs/PressableBtn"
+import PressableBtn from "../../components/UIs/PressableBtn";
 
 export default function CalendarScreen() {
   const navigation = useNavigation();
-  function navToSummary(){
-    navigation.navigate('Availability' )
+  function navToSummary() {
+    navigation.navigate("Availability");
   }
   return (
     <View style={styles.rootContainer}>
       <View style={styles.summaryTabContainer}>
-        <PressableBtn style={styles.button} onPress={navToSummary}>Go to Summary</PressableBtn>
+        <PressableBtn
+          style={styles.button}
+          onPress={navToSummary}>
+          Go to Summary
+        </PressableBtn>
       </View>
       <View style={styles.calendarContainer}>
-      <Text>
-        This is the <Text style={styles.highlight}>"Calendar"</Text> screen!
-      </Text>
+        <Text>
+          This is the <Text style={styles.highlight}>"Calendar"</Text> screen!
+        </Text>
       </View>
     </View>
   );
@@ -26,11 +30,10 @@ const styles = StyleSheet.create({
     flex: 6,
     justifyContent: "space-evenly",
     alignItems: "center",
-
   },
   summaryTabContainer: {
-    width:'80%',
-    marginTop: '20%',
+    width: "80%",
+    marginTop: "20%",
     flex: 1,
   },
   button: {
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   calendarContainer: {
-    flex: 5
+    flex: 5,
   },
   highlight: {
     fontWeight: "bold",

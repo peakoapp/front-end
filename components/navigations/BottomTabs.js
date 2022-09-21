@@ -6,7 +6,6 @@ import PostsScreen from "../../screens/PostsScreen/PostsScreen";
 import ChatScreen from "../../screens/ChatScreen/ChatScreen";
 import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
 
-
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
@@ -16,8 +15,7 @@ export default function BottomTabs() {
         headerShown: false,
         tabBarShowLabel: false,
         //TODO: tabBarActiveTintColor not working
-      }}
-    >
+      }}>
       <Tab.Screen
         name="Calendar"
         component={CalendarScreen}
