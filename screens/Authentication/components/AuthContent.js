@@ -19,7 +19,7 @@ function AuthContent({ isLogin, onAuthenticate }) {
     if (isLogin) {
       navigation.replace('Signup');
     } else {
-      navigation.replace('Login');
+      navigation.replace('Signin');
     }
   }
 
