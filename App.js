@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import AuthContextProvider, { AuthContext } from './store/auth-context';
 import AppLoading from 'expo-app-loading';
 import Font from "./style/Font";
-import BottomTabs from "./components/navigations/BottomTabs";
 import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
