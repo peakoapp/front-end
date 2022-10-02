@@ -3,71 +3,121 @@ import { StyleSheet, Text, View } from "react-native";
 import { useState, useContext, useEffect, useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthContextProvider, { AuthContext } from './store/auth-context';
+import AppLoading from 'expo-app-loading';
 import Font from "./style/Font";
 import BottomTabs from "./components/navigations/BottomTabs";
 import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SignupScreen from "./screens/Authentication/SignupScreen/SignupScreen";
 import SigninScreen from "./screens/Authentication/SigninScreen/SigninScreen";
+import CalendarScreen from "./screens/CalendarScreen/CalendarScreen";
+import PostsScreen from "./screens/PostsScreen/PostsScreen";
+import ChatScreen from "./screens/ChatScreen/ChatScreen";
+import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
+import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-function AuthenticatedStack(){
-  const authCtx = useContext(AuthContext);
+function AuthStack() {
   return (
-    <View style={styles.rootContainer}>
-      <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen
-            name="BottomTab"
-            component={BottomTabs}
-            options={{
-              headerShown: false,
-            }}
-          />
-       <Stack.Screen name="Availability" component={AvailabilitySummaryScreen} />
-       <Stack.Screen name="Signin" component={SigninScreen} />
-       <Stack.Screen name="Signup" component={SignupScreen} />
-      </Stack.Navigator>
-      </NavigationContainer>
-    </View>
-  )
+    <Stack.Navigator>
+      <Stack.Screen name="Signin" component={SigninScreen}   
+      screenOptions={{
+        headerShown: false,
+      }}/>
+      <Stack.Screen name="Signup" component={SignupScreen}
+        screenOptions={{
+        headerShown: false,
+      }}/>
+    </Stack.Navigator>
+  );
 }
 
-function AuthenticationStack(){
+function AuthenticatedStack() {
   const authCtx = useContext(AuthContext);
   return (
-    <View style={styles.rootContainer}>
-      <NavigationContainer>
-      <Stack.Navigator >
-       <Stack.Screen name="Signin" component={SigninScreen} options={{
-              headerShown: false,
-            }}/>
-       <Stack.Screen name="Signup" component={SignupScreen} options={{
-              headerShown: false,
-            }}/>
-      </Stack.Navigator>
-      </NavigationContainer>
-    </View>
-  )
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        showLabel: false,
+        //TODO: tabBarActiveTintColor not working
+      }}>
+      <Tab.Screen
+        name="Calendar"
+        component={CalendarScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <Ionicons
+              name="calendar"
+              color={focused ? "orange" : "grey"}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Posts"
+        component={PostsScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <Entypo
+              name="slideshare"
+              color={focused ? "orange" : "grey"}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Chat"
+        component={ChatScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <Entypo
+              name="chat"
+              color={focused ? "orange" : "grey"}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <FontAwesome
+              name="user"
+              color={focused ? "orange" : "grey"}
+              size={size}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
 }
+
+function Navigation() {
+  const authCtx = useContext(AuthContext);
+
+  return (
+    <NavigationContainer>
+      {!authCtx.isAuthenticated && <AuthStack />}
+      {authCtx.isAuthenticated && <AuthenticatedStack />}
+    </NavigationContainer>
+  );
+}
+
 
 export default function App() {
-  //Authentication
-  const authCtx = useContext(AuthContext);
-
-  <Font />
-  //rendering
   return (
     <>
-      {authCtx.isAuthenticated && <AuthenticatedStack />}
-      {!authCtx.isAuthenticated && <AuthenticationStack />}
-    </>
-  )
-}
+      <StatusBar style="light" />
 
-const styles = StyleSheet.create({
-  rootContainer: {
-    flex: 1,
-  },
-});
+      <Navigation />
+    </>
+  );
+}
