@@ -1,13 +1,18 @@
 import { View, Text, StyleSheet } from "react-native";
+
 import { TextInput } from "react-native-gesture-handler";
 import PressableBtn from "../../../../components/UIs/PressableBtn";
 import { useNavigation } from "@react-navigation/native";
 import Title from "../../components/Title";
-export default function SignupForm() {
+
+export default function SignupForm({authCtx}) {
     const navigation = useNavigation();
     function navToSignIn(){
         navigation.navigate('Signin' )
       }
+      
+
+
     return (
             <View style={styles.rootContainer}>
             <View><Title>Sign up</Title></View>
@@ -18,7 +23,8 @@ export default function SignupForm() {
                 <TextInput style={styles.textInput} placeholder="Username"/>
             </View>
             <View style={styles.submitContianer}>
-                <View><PressableBtn>Sign Up</PressableBtn></View>
+                {/* wrong way of auth? */}
+                <View><PressableBtn onPress={() => authCtx.isAuthenticated = true}>Sign Up</PressableBtn></View>
                 <View ><Text style={styles.text} onPress={navToSignIn}>Have an account?</Text></View>
             </View>
         </View>

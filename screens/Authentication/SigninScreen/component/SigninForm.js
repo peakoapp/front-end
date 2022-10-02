@@ -3,11 +3,14 @@ import { TextInput } from "react-native-gesture-handler";
 import PressableBtn from "../../../../components/UIs/PressableBtn";
 import { useNavigation } from "@react-navigation/native";
 import Title from "../../components/Title";
+import {AuthContext} from "../../../../store/auth-context"
+import { useContext } from "react";
 export default function SigninForm() {
   const navigation = useNavigation();
   function navToSignUp() {
     navigation.navigate("Signup");
   }
+  const authCtx = useContext(AuthContext);
   return (
     <View style={styles.rootContainer}>
       <View>
@@ -25,7 +28,7 @@ export default function SigninForm() {
       </View>
       <View style={styles.submitContianer}>
         <View>
-          <PressableBtn>Log In</PressableBtn>
+          <PressableBtn onPress={navigation.navigate('BottomTab')}>Log In</PressableBtn>
         </View>
         <View>
           <Text

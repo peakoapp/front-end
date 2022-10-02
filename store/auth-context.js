@@ -1,8 +1,8 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
 export const AuthContext = createContext({
-  token: "",
-  isAuthenticated: false,
+  token: '',
+  isAuthenticated: true,
   authenticate: (token) => {},
   logout: () => {},
 });

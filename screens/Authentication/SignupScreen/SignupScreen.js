@@ -1,25 +1,31 @@
-import { View, Text, StyleSheet } from "react-native";
-import SignupForm from "./component/SignupForm";
-export default function SignupScreen(){
-    return (
-            <View style={styles.rootContainer}>
-                <View style={styles.formContainer}>
-                <SignupForm/>
-                </View>
-            </View>
+import { useState } from 'react';
+import { Alert } from 'react-native';
 
-    )
+import AuthContent from '../components/AuthContent';
+import LoadingOverlay from '../components/LoadingOverlay';
+import { createUser } from '../util/auth';
+
+function SignupScreen() {
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  async function signupHandler({ email, password }) {
+    setIsAuthenticating(true);
+    try {
+      await createUser(email, password);
+    } catch (error) {
+      Alert.alert(
+        'Authentication failed',
+        'Could not create user, please check your input and try again later.'
+      );
+    }
+    setIsAuthenticating(false);
+  }
+
+  if (isAuthenticating) {
+    return <LoadingOverlay message="Creating user..." />;
+  }
+
+  return <AuthContent onAuthenticate={signupHandler} />;
 }
 
-const styles = StyleSheet.create({
-    rootContainer: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor:'orange'
-    },
-    formContainer:{
-        flex:1,
-        marginTop:100
-    }
-  });
+export default SignupScreen;

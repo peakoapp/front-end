@@ -1,24 +1,31 @@
-import { View, Text, StyleSheet } from "react-native";
-import SigninForm from "./component/SigninForm";
-export default function SigninScreen() {
-  return (
-    <View style={styles.rootContainer}>
-      <View style={styles.formContainer}>
-        <SigninForm />
-      </View>
-    </View>
-  );
+import { useState } from 'react';
+import { Alert } from 'react-native';
+
+import AuthContent from '../components/AuthContent';
+import LoadingOverlay from '../components/LoadingOverlay';
+import { login } from '../util/auth';
+
+function LoginScreen() {
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  async function loginHandler({ email, password }) {
+    setIsAuthenticating(true);
+    try {
+      await login(email, password);
+    } catch (error) {
+      Alert.alert(
+        'Authentication failed!',
+        'Could not log you in. Please check your credentials or try again later!'
+      );
+    }
+    setIsAuthenticating(false);
+  }
+
+  if (isAuthenticating) {
+    return <LoadingOverlay message="Logging you in..." />;
+  }
+
+  return <AuthContent isLogin onAuthenticate={loginHandler} />;
 }
 
-const styles = StyleSheet.create({
-  rootContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "orange",
-  },
-  formContainer: {
-    flex: 1,
-    marginTop: 100,
-  },
-});
+export default LoginScreen;
