@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useState, useContext, useEffect, useCallback } from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AuthContextProvider, { AuthContext } from './store/auth-context';
 import AppLoading from 'expo-app-loading';
 import Font from "./style/Font";
@@ -15,6 +15,7 @@ import PostsScreen from "./screens/PostsScreen/PostsScreen";
 import ChatScreen from "./screens/ChatScreen/ChatScreen";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
+import { useTokenStorage } from "./screens/Authentication/util/useTokenStorage";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -101,7 +102,6 @@ function AuthenticatedStack() {
 
 function Navigation() {
   const authCtx = useContext(AuthContext);
-
   return (
     <NavigationContainer>
       {!authCtx.isAuthenticated && <AuthStack />}
@@ -114,9 +114,11 @@ function Navigation() {
 export default function App() {
   return (
     <>
-      <StatusBar style="light" />
+      <AuthContextProvider>
+        <StatusBar style="light" />
 
-      <Navigation />
+        <Navigation />
+      </AuthContextProvider>
     </>
   );
 }

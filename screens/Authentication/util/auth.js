@@ -20,10 +20,11 @@ function authenticate(mode, email, password){
 
   return token
 }
+
 export async function createUser(email, password) {
-    await authenticate('signUp', email, password);
-  }
+  return await authenticate('signUp', email, password);
+}
   
 export async function login(email, password) {
-  await authenticate('signInWithPassword', email, password);
+  return await authenticate('signInWithPassword', email, password);
 }
