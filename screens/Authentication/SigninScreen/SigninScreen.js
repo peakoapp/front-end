@@ -17,6 +17,7 @@ function LoginScreen() {
       console.log('calling authenticate next (signin)')
       authCxt.authenticate(token);
     } catch (error) {
+      console.log(error)
       Alert.alert(
         'Authentication failed!',
         'Could not log you in. Please check your credentials or try again later!'

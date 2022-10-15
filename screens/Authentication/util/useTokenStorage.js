@@ -10,7 +10,10 @@ export const useTokenStorage = () => {
     }
 
     const set = async (value) => {
+        if(value){
         await storage.setItem(value);
+        }
+        
     }
     
     const del = async () => {

@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputInvalid: {
-    backgroundColor: 'orange',
+    opacity:0.5
   },
 });

@@ -1,9 +1,9 @@
 async function authenticate(mode, email, password) {
-  url = "http://localhost:8080/v1/auth/signin";
+  url = "http://192.168.4.31:8080/v1/auth/signin";
   if (mode == "signInWithPassword") {
     await fetch(url, {
       method: "POST",
-      body: JSOM.stringify({
+      body: JSON.stringify({
         email: email,
         password: password,
       }),
@@ -12,8 +12,8 @@ async function authenticate(mode, email, password) {
       },
     })
       .then((res) => {
-        console.log(res);
-        return res.json.body.access_key;
+        console.log(res.json());
+        return res.body.access_key;
       })
       .catch((err) => console.log(err));
   }
@@ -24,6 +24,5 @@ export async function createUser(email, password) {
 }
 
 export async function login(email, password) {
-  console.log("hi");
   return await authenticate("signInWithPassword", email, password);
 }
