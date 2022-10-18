@@ -11,10 +11,10 @@ async function authenticate(mode, email, password) {
         "Content-Type": "application/json"
       },
     })
-      .then((res) => {
-        console.log(res.json());
-        return res.body.access_key;
-      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.body.access_token)
+        return(data.body.access_token)})
       .catch((err) => console.log(err));
   }
 }
