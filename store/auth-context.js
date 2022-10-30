@@ -13,7 +13,7 @@ export const AuthContext = createContext(defaultAuthState);
 function AuthContextProvider({ children }) {
   const [tokenState, setTokenState] = useState({
     token: '',
-    isAuthenticated: true
+    isAuthenticated: false
   });
   const { set, del } = useTokenStorage();
 

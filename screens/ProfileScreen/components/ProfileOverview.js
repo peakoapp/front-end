@@ -3,8 +3,13 @@ import { Ionicons, FontAwesome, AntDesign } from "@expo/vector-icons";
 import ProfileInfoEntry from "./ProfileInfoEntry";
 import ProfileName from "./ProfileName";
 import ProfileLocation from "./ProfileLocation";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ProfileOverview() {
+  const navigation = useNavigation();
+  function navToEdit() {
+    navigation.navigate("Edit Profile");
+  }
   return (
     <View style={styles.rootContainer}>
       <View style={styles.profileHeader}>
@@ -45,7 +50,8 @@ export default function ProfileOverview() {
                 pressed
                   ? [styles.editbtn, styles.editbtnContainerPressed]
                   : styles.editbtn
-              }>
+              }
+              onPress={navToEdit}>
               <Text style={styles.editbtnText}>Edit Profile</Text>
             </Pressable>
           </View>

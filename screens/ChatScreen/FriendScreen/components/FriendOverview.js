@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
         margin: '5%'
     },
     text:{
-        fontSize: 20
+        fontSize: 15
     }
 });

@@ -12,6 +12,7 @@ import ChatScreen from "./screens/ChatScreen/ChatScreen";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
+import ProfileEdit from "./screens/ProfileScreen/ProfileEdit/ProfileEdit";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -105,11 +106,6 @@ function AuthenticatedStack(){
         name = "AuthenticatedTab"
         component={AuthenticatedTab}
         options={{ headerShown: false}}
-      />
-      <Stack.Screen
-        name = "Availability"
-        component={AvailabilitySummaryScreen}
-        options={{ headerShown: true}}
       />
     </Stack.Navigator>
   )

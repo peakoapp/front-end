@@ -1,13 +1,17 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { View, StyleSheet, StatusBar } from "react-native";
+import { Text, View, StyleSheet, StatusBar } from "react-native";
 import ProfileOverview from "./components/ProfileOverview";
 import ProfilePost from "./ProfilePost/ProfilePost";
 import ProfileCalendar from "./ProfileCalendar/ProfileCalendar";
 import ProfileList from "./ProfileList/ProfileList";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ProfileEdit from "./ProfileEdit/ProfileEdit";
 
+const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
-export default function ProfileScreen() {
-  return (
+
+function ProfileNavTab(){
+  return(
     <View style={styles.rootContainer}>
       <View style={styles.overviewContainer}>
         <ProfileOverview />
@@ -36,8 +40,17 @@ export default function ProfileScreen() {
           <Tab.Screen
             name="Posts"
             component={ProfilePost}
-            options={{}}
-          />
+            options={{
+              // todo: make this overlay
+              // tabBarIcon: ({ focused, size }) => (
+                
+              //     <View>
+              //     <Text style={{
+              //       color: focused ? 'white' : 'black',
+              //     }}>Post</Text>
+              //     </View>
+              // ),
+            }} />
           <Tab.Screen
             name="Calendar"
             component={ProfileCalendar}
@@ -51,6 +64,23 @@ export default function ProfileScreen() {
         </Tab.Navigator>
       </View>
     </View>
+  )
+}
+
+export default function ProfileScreen() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name = "ProfileNavTab"
+        component={ProfileNavTab}
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name = "Edit Profile"
+        component={ProfileEdit}
+        options={{ headerShown: true}}
+      />
+    </Stack.Navigator>
   );
 }
 
