@@ -1,5 +1,5 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import { Ionicons, FontAwesome, AntDesign } from "@expo/vector-icons";
 import ProfileInfoEntry from "./ProfileInfoEntry";
 import ProfileName from "./ProfileName";
 import ProfileLocation from "./ProfileLocation";
@@ -9,14 +9,14 @@ export default function ProfileOverview() {
     <View style={styles.rootContainer}>
       <View style={styles.profileHeader}>
         <View style={styles.profileHeaderTab}>
-        <Ionicons
-              name="share"
-              size={30}
-            />
-            <Ionicons
-              name="settings"
-              size={30}
-            />
+          <Ionicons
+            name="share-social-outline"
+            size={30}
+          />
+          <Ionicons
+            name="settings-outline"
+            size={30}
+          />
         </View>
       </View>
       <View style={styles.profileOverview}>
@@ -36,7 +36,19 @@ export default function ProfileOverview() {
           </View>
         </View>
         <View style={styles.profileBioContainer}>
-          <Text>hi this is my bio and this is more more morreeeeeee</Text>
+          <View style={styles.bioTextContainer}>
+            <Text>hi this is my bio and this is more more morreeeeeee</Text>
+          </View>
+          <View style={styles.editbtnContainer}>
+            <Pressable
+              style={({ pressed }) =>
+                pressed
+                  ? [styles.editbtn, styles.editbtnContainerPressed]
+                  : styles.editbtn
+              }>
+              <Text style={styles.editbtnText}>Edit Profile</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
     </View>
@@ -49,27 +61,30 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   profileHeader: {
-    height: 35,
-    flexDirection: 'row',
-    justifyContent: 'flex-end'
+    height: "18%",
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
-  profileHeaderTab:{
-    flexDirection:'row',
-    marginRight: 20,
-    marginTop: 5
+  profileHeaderTab: {
+    flexDirection: "row",
+    marginRight: "7%",
+    marginTop: "3%",
+    width: "25%",
+    justifyContent: "space-between",
   },
   profileOverview: {
-    backgroundColor: "#F2D5BB",
-    margin: 20,
-    marginTop:5,
-    borderRadius: 30,
+    backgroundColor: "#FFE3BF",
+    margin: "7%",
+    marginBottom: "2%",
+    marginTop: "2%",
+    borderRadius: 20,
   },
   profileDetailContainer: {
     flexDirection: "row",
   },
   profilePicContainer: {
-    marginTop: 20,
-    marginLeft: 30,
+    marginTop: "6%",
+    marginLeft: "7%",
     width: 100,
     height: 100,
     borderRadius: 30,
@@ -77,12 +92,14 @@ const styles = StyleSheet.create({
   },
   profileInfoContainer: {
     flex: 1,
-    margin: 25,
+    margin: "5%",
   },
   profileBioContainer: {
-    marginTop: 5,
-    marginLeft: 40,
-    paddingBottom: 15,
+    marginTop: "2%",
+    marginLeft: "10%",
+    paddingBottom: "3%",
+    justifyContent: "space-around",
+    flexDirection: "row",
   },
   image: {
     flex: 1,
@@ -93,4 +110,26 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "orange",
   },
+  bioTextContainer: {
+    width: "70%",
+  },
+  editbtnContainer: {
+    borderRadius: 5,
+    overflow: "hidden",
+    margin: "2%",
+    marginRight: '7%'
+  },
+  editbtnContainerPressed: {
+    opacity: 0.5
+  },
+  editbtn: {
+    backgroundColor: '#CECECE',
+    padding: '3%'
+  },
+  editbtnText: {
+    color: "black",
+    fontSize: 15,
+    textAlign: "center",
+    fontWeight:'bold'
+  }
 });

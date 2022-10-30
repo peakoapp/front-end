@@ -2,8 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import { useState, useContext, useEffect, useCallback } from "react";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AuthContextProvider, { AuthContext } from './store/auth-context';
-import AppLoading from 'expo-app-loading';
-import Font from "./style/Font";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SignupScreen from "./screens/Authentication/SignupScreen/SignupScreen";
@@ -109,9 +107,9 @@ function AuthenticatedStack(){
         options={{ headerShown: false}}
       />
       <Stack.Screen
-        name = "AvailabilitySummaryScreen"
+        name = "Availability"
         component={AvailabilitySummaryScreen}
-        options={{ headerShown: false}}
+        options={{ headerShown: true}}
       />
     </Stack.Navigator>
   )
@@ -132,7 +130,7 @@ export default function App() {
   return (
     <>
       <AuthContextProvider>
-        <StatusBar style="light" />
+        <StatusBar style="dark" />
 
         <Navigation />
       </AuthContextProvider>

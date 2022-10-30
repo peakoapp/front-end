@@ -19,17 +19,18 @@ export default function PressableBtn({ children, onPress }) {
 
 const styles = StyleSheet.create({
   buttonOuterContainer: {
-    borderRadius: 28,
+    borderRadius: 20,
     margin: 4,
-    overflow: "hidden",
+    overflow: "hidden"
   },
   buttonInnerContainer: {
-    backgroundColor: "orange",
-    padding: 5,
+    backgroundColor: '#8E29F2',
     elevation: 2,
+    padding: 15
   },
   buttonText: {
     color: "white",
+    fontSize: 15,
     textAlign: "center",
     fontFamily: "poppins-semibold",
   },

@@ -1,18 +1,16 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import PressableBtn from "../../components/UIs/PressableBtn";
-import AvailabilitySummaryScreen from "./AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 
 export default function CalendarScreen() {
   const navigation = useNavigation();
   function navToSummary() {
-    navigation.navigate("AvailabilitySummaryScreen");
+    navigation.navigate("Availability");
   }
   return (
     <View style={styles.rootContainer}>
       <View style={styles.summaryTabContainer}>
         <PressableBtn
-          style={styles.button}
           onPress={navToSummary}>
           Go to Summary
         </PressableBtn>
@@ -34,11 +32,12 @@ const styles = StyleSheet.create({
   },
   summaryTabContainer: {
     width: "80%",
-    marginTop: "20%",
+    marginTop: "30%",
     flex: 1,
+
+
   },
   button: {
-    minWidth: 120,
     marginHorizontal: 8,
   },
   calendarContainer: {
