@@ -1,12 +1,18 @@
 import { View, Text, StyleSheet } from "react-native";
+import FriendOverview from "./components/FriendOverview";
 
 
 export default function FriendScreen(){
     return (
         <View style={styles.rootContainer}>
-        <Text>
-          This is the <Text style={styles.highlight}>"Friend"</Text> screen!
-        </Text>
+          {/* todo: make FriendsList flatlist, add toggle group */}
+        <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
+        <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
+        <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
+        <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
+        <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
+        <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
+        
       </View>
     )
 }
