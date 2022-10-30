@@ -10,11 +10,27 @@ export default function ChatScreen(){
     return (
       <View style={styles.rootContainer}>
         <View style={styles.navContainer}>
-        <Tab.Navigator screenOptions={{
-          tabBarLabelStyle: { fontSize: 20 },
-          tabBarStyle: { backgroundColor: 'orange' },
-        }}
-          >
+        <Tab.Navigator
+          screenOptions={{
+            tabBarLabelStyle:{
+              fontSize: 20
+            },
+            tabBarActiveTintColor: "white",
+            tabBarInactiveTintColor: "black",
+            tabBarIndicatorContainerStyle: {
+              display: "none",
+            },
+
+            tabBarStyle: {
+              backgroundColor: "#D6BBF2",
+              position: "absolute",
+              left: "5%",
+              right: "5%",
+              borderRadius: 20,
+              marginTop: '10%',
+              height: "7%",
+            },
+          }}>
           <Tab.Screen name="Messages" component={MessageScreen} />
           <Tab.Screen name="Friends" component={FriendScreen} />
         </Tab.Navigator>

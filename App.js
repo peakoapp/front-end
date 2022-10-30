@@ -1,11 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { useState, useContext, useEffect, useCallback } from "react";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AuthContextProvider, { AuthContext } from './store/auth-context';
 import AppLoading from 'expo-app-loading';
 import Font from "./style/Font";
-import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SignupScreen from "./screens/Authentication/SignupScreen/SignupScreen";
@@ -15,7 +13,7 @@ import PostsScreen from "./screens/PostsScreen/PostsScreen";
 import ChatScreen from "./screens/ChatScreen/ChatScreen";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import { Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
-import { useTokenStorage } from "./screens/Authentication/util/useTokenStorage";
+import AvailabilitySummaryScreen from "./screens/CalendarScreen/AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,14 +33,16 @@ function AuthStack() {
   );
 }
 
-function AuthenticatedStack() {
+function AuthenticatedTab() {
   const authCtx = useContext(AuthContext);
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
         showLabel: false,
-        //TODO: tabBarActiveTintColor not working
+        tabBarLabelStyle:{
+          display: "none"
+        },
       }}>
       <Tab.Screen
         name="Calendar"
@@ -51,7 +51,7 @@ function AuthenticatedStack() {
           tabBarIcon: ({ focused, size }) => (
             <Ionicons
               name="calendar"
-              color={focused ? "orange" : "grey"}
+              color={focused ? "#8E29F2" : "grey"}
               size={size}
             />
           ),
@@ -64,7 +64,7 @@ function AuthenticatedStack() {
           tabBarIcon: ({ focused, size }) => (
             <Entypo
               name="slideshare"
-              color={focused ? "orange" : "grey"}
+              color={focused ? "#8E29F2" : "grey"}
               size={size}
             />
           ),
@@ -77,7 +77,7 @@ function AuthenticatedStack() {
           tabBarIcon: ({ focused, size }) => (
             <Entypo
               name="chat"
-              color={focused ? "orange" : "grey"}
+              color={focused ? "#8E29F2" : "grey"}
               size={size}
             />
           ),
@@ -90,7 +90,7 @@ function AuthenticatedStack() {
           tabBarIcon: ({ focused, size }) => (
             <FontAwesome
               name="user"
-              color={focused ? "orange" : "grey"}
+              color={focused ? "#8E29F2" : "grey"}
               size={size}
             />
           ),
@@ -98,6 +98,23 @@ function AuthenticatedStack() {
       />
     </Tab.Navigator>
   );
+}
+
+function AuthenticatedStack(){
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name = "AuthenticatedTab"
+        component={AuthenticatedTab}
+        options={{ headerShown: false}}
+      />
+      <Stack.Screen
+        name = "AvailabilitySummaryScreen"
+        component={AvailabilitySummaryScreen}
+        options={{ headerShown: false}}
+      />
+    </Stack.Navigator>
+  )
 }
 
 function Navigation() {

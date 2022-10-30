@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   profileOverview: {
-    backgroundColor: "#edb739",
+    backgroundColor: "#F2D5BB",
     margin: 20,
     marginTop:5,
     borderRadius: 30,

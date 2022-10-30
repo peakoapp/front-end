@@ -1,7 +1,7 @@
 async function authenticate(mode, email, password) {
   url = "http://192.168.4.31:8080/v1/auth/signin";
   if (mode == "signInWithPassword") {
-    await fetch(url, {
+    return await fetch(url, {
       method: "POST",
       body: JSON.stringify({
         email: email,
@@ -13,7 +13,6 @@ async function authenticate(mode, email, password) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.body.access_token)
         return(data.body.access_token)})
       .catch((err) => console.log(err));
   }

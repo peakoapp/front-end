@@ -6,7 +6,6 @@ import ProfileCalendar from "./ProfileCalendar/ProfileCalendar";
 import ProfileList from "./ProfileList/ProfileList";
 
 const Tab = createMaterialTopTabNavigator();
-
 export default function ProfileScreen() {
   return (
     <View style={styles.rootContainer}>
@@ -16,20 +15,38 @@ export default function ProfileScreen() {
       <View style={styles.navContainer}>
         <Tab.Navigator
           screenOptions={{
-            tabBarLabelStyle: { fontSize: 15 },
-            tabBarStyle: { backgroundColor: "orange" },
+            tabBarLabelStyle:{
+              fontSize: 15
+            },
+            tabBarActiveTintColor: "white",
+            tabBarInactiveTintColor: "black",
+            tabBarIndicatorContainerStyle: {
+              display: "none",
+            },
+
+            tabBarStyle: {
+              backgroundColor: "#D6BBF2",
+              position: "absolute",
+              left: "5%",
+              right: "5%",
+              borderRadius: 20,
+              height: "10%",
+            },
           }}>
           <Tab.Screen
             name="Posts"
             component={ProfilePost}
+            options={{}}
           />
           <Tab.Screen
             name="Calendar"
             component={ProfileCalendar}
+            options={{}}
           />
           <Tab.Screen
             name="List"
             component={ProfileList}
+            options={{}}
           />
         </Tab.Navigator>
       </View>

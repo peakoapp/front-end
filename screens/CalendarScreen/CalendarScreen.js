@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import PressableBtn from "../../components/UIs/PressableBtn";
+import AvailabilitySummaryScreen from "./AvailabilitySummaryScreen/AvailabilitySummaryScreen";
 
 export default function CalendarScreen() {
   const navigation = useNavigation();
   function navToSummary() {
-    navigation.navigate("Availability");
+    navigation.navigate("AvailabilitySummaryScreen");
   }
   return (
     <View style={styles.rootContainer}>
