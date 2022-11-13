@@ -6,6 +6,8 @@ import ProfileCalendar from "./ProfileCalendar/ProfileCalendar";
 import ProfileList from "./ProfileList/ProfileList";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProfileEdit from "./ProfileEdit/ProfileEdit";
+import Setting from "./Setting/Setting";
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -78,6 +80,11 @@ export default function ProfileScreen() {
       <Stack.Screen
         name = "Edit Profile"
         component={ProfileEdit}
+        options={{ headerShown: true}}
+      />
+      <Stack.Screen
+        name = "Setting"
+        component={Setting}
         options={{ headerShown: true}}
       />
     </Stack.Navigator>

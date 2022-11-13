@@ -10,6 +10,9 @@ export default function ProfileOverview() {
   function navToEdit() {
     navigation.navigate("Edit Profile");
   }
+  function navToSetting() {
+    navigation.navigate("Setting")
+  }
   return (
     <View style={styles.rootContainer}>
       <View style={styles.profileHeader}>
@@ -21,6 +24,7 @@ export default function ProfileOverview() {
           <Ionicons
             name="settings-outline"
             size={30}
+            onPress={navToSetting}
           />
         </View>
       </View>
