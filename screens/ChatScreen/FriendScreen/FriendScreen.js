@@ -6,6 +6,7 @@ export default function FriendScreen(){
     return (
         <View style={styles.rootContainer}>
           {/* todo: make FriendsList flatlist, add toggle group */}
+          {/* make the display dynamic, create card element */}
         <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
         <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
         <FriendOverview firstname={"Jaylan"} lastname={"Zhao"} picture={'https://image.shutterstock.com/image-vector/green-yellow-red-blue-black-260nw-1150376291.jpg'}></FriendOverview>
