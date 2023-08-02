@@ -18,7 +18,7 @@ export default function ChatScreen(){
             tabBarActiveTintColor: "white",
             tabBarInactiveTintColor: "black",
             tabBarIndicatorStyle: {
-              backgroundColor: "#0050B6",
+              backgroundColor: "#8E29F2",
               height: 45,
               borderRadius:20
             },

@@ -3,6 +3,9 @@ import { useNavigation } from "@react-navigation/native";
 import PressableBtn from "../../components/UIs/PressableBtn";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AvailabilitySummaryScreen from "./AvailabilitySummaryScreen/AvailabilitySummaryScreen";
+
+import CalendarComponent from "./components/CalendarComponent";
+
 const Stack = createNativeStackNavigator();
 
 function CalendarMain() {
@@ -16,9 +19,7 @@ function CalendarMain() {
         <PressableBtn onPress={navToSummary}>Go to Summary</PressableBtn>
       </View>
       <View style={styles.calendarContainer}>
-        <Text>
-          This is the <Text style={styles.highlight}>"Calendar"</Text> screen!
-        </Text>
+        <CalendarComponent />
       </View>
     </View>
   );
@@ -43,21 +44,25 @@ export default function CalendarScreen() {
 
 const styles = StyleSheet.create({
   rootContainer: {
-    flex: 6,
+    flex: 1,
     justifyContent: "space-evenly",
     alignItems: "center",
+    top: "5%",
   },
   summaryTabContainer: {
     width: "80%",
-    marginTop: "30%",
+    marginTop: "5%", 
+    alignItems: "center", 
+    padding: 10, 
+  },
+  calendarContainer: {
     flex: 1,
+    width: '100%', 
   },
   button: {
     marginHorizontal: 8,
   },
-  calendarContainer: {
-    flex: 5,
-  },
+
   highlight: {
     fontWeight: "bold",
     color: "orange",
