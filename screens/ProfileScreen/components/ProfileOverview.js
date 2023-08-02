@@ -127,19 +127,21 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     overflow: "hidden",
     margin: "2%",
-    marginRight: '7%'
+    marginRight: '7%',
+    top: '7%',
   },
   editbtnContainerPressed: {
     opacity: 0.5
   },
   editbtn: {
     backgroundColor: '#CECECE',
-    padding: '3%'
+    padding: '3%',
+    
   },
   editbtnText: {
     color: "black",
     fontSize: 15,
     textAlign: "center",
-    fontWeight:'bold'
+    fontWeight:'bold',
   }
 });

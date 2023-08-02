@@ -26,8 +26,10 @@ function ProfileNavTab(){
             },
             tabBarActiveTintColor: "white",
             tabBarInactiveTintColor: "black",
-            tabBarIndicatorContainerStyle: {
-              display: "none",
+            tabBarIndicatorStyle: {
+              backgroundColor: "#0050B6",
+              height: 45,
+              borderRadius:20
             },
 
             tabBarStyle: {
@@ -36,7 +38,7 @@ function ProfileNavTab(){
               left: "5%",
               right: "5%",
               borderRadius: 20,
-              height: "10%",
+              height: "9%",
             },
           }}>
           <Tab.Screen
@@ -93,7 +95,7 @@ export default function ProfileScreen() {
 
 const styles = StyleSheet.create({
   rootContainer: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : '10%',
     flex: 3,
   },
   navContainer: {

@@ -12,13 +12,15 @@ export default function ChatScreen(){
         <View style={styles.navContainer}>
         <Tab.Navigator
           screenOptions={{
-            tabBarLabelStyle:{
-              fontSize: 20
+            tabBarLabelStyle: {
+              fontSize: 15
             },
             tabBarActiveTintColor: "white",
             tabBarInactiveTintColor: "black",
-            tabBarIndicatorContainerStyle: {
-              display: "none",
+            tabBarIndicatorStyle: {
+              backgroundColor: "#0050B6",
+              height: 45,
+              borderRadius:20
             },
 
             tabBarStyle: {
@@ -27,8 +29,8 @@ export default function ChatScreen(){
               left: "5%",
               right: "5%",
               borderRadius: 20,
-              marginTop: '10%',
-              height: "7%",
+              marginTop: '20%',
+              height: "5%",
             },
           }}>
           <Tab.Screen name="Messages" component={MessageScreen} />
